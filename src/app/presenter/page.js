@@ -1,39 +1,39 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Viewer, Worker } from '@react-pdf-viewer/core';
+import { useEffect, useState, useCallback } from 'react';
+import { Worker, Viewer } from '@react-pdf-viewer/core';
+import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation';
 import '@react-pdf-viewer/core/lib/styles/index.css';
-import workerSrc from 'pdfjs-dist/build/pdf.worker.min.js';
-import { usePage } from '../context/PageContext';
+import '@react-pdf-viewer/page-navigation/lib/styles/index.css';
+import { usePage } from '../../context/PageContext';
+import {socket} from '../socket'
 
 export default function PresenterComponent() {
-  const [pdfData, setPdfData] = useState(null);
   const [pdfUrl, setPdfUrl] = useState(null);
   const { pageNumber, setPageNumber } = usePage();
 
+  const pageNavigationPluginInstance = pageNavigationPlugin();
+
   useEffect(() => {
+
+    socket.connect()
+
     const fetchPdf = async () => {
       const response = await fetch('/api/getPdf');
       if (response.ok) {
-        const data = await response.blob();
-        setPdfData(data);
+        const blob = await response.blob();
+        setPdfUrl(URL.createObjectURL(blob));
       }
     };
     fetchPdf();
   }, []);
 
-  useEffect(() => {
-    if (pdfData) {
-      const url = URL.createObjectURL(pdfData);
-      setPdfUrl(url);
-      return () => URL.revokeObjectURL(url);
-    }
-  }, [pdfData]);
-
-  const handlePageChange = (event) => {
-    const currentPage = event.currentPage + 1;
-    if (currentPage !== pageNumber) {
-      setPageNumber(currentPage); // Update page number in context
+  const handlePageChange = ({ currentPage }) => {
+    const newPage = currentPage + 1;
+    console.log('Presenter page change:', newPage);
+    setPageNumber(newPage);
+    if (socket) {
+      socket.emit('pageChange', newPage);
     }
   };
 
@@ -42,10 +42,11 @@ export default function PresenterComponent() {
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Presenter PDF Viewer</h1>
       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-4">
         {pdfUrl ? (
-          <Worker workerUrl={workerSrc}>
+          <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}>
             <Viewer
               fileUrl={pdfUrl}
-              onPageChange={handlePageChange} // Track page changes
+              plugins={[pageNavigationPluginInstance]}
+              onPageChange={handlePageChange}
             />
           </Worker>
         ) : (

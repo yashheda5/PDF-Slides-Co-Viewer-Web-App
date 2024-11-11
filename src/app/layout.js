@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { PageProvider } from "./context/PageContext"; // Import the PageProvider
+import { PageProvider } from "../context/PageContext"; // Import the PageProvider
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

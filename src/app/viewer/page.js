@@ -1,44 +1,59 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
+import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation';
 import '@react-pdf-viewer/core/lib/styles/index.css';
-import workerSrc from 'pdfjs-dist/build/pdf.worker.min.js';
-import { usePage } from '../context/PageContext';
+import '@react-pdf-viewer/page-navigation/lib/styles/index.css';
+import { usePage } from '../../context/PageContext';
+// import io from 'socket.io-client';
+import { socket } from '../socket'
 
 export default function ViewerComponent() {
-  const { pageNumber } = usePage();
-  const [pdfData, setPdfData] = useState(null);
-  const viewerRef = useRef(null);
+  const [pageNumber, setPageNumber] = useState('');
+  const [pdfUrl, setPdfUrl] = useState(null);
+  // const [socket, setSocket] = useState(null);
+
+  const pageNavigationPluginInstance = pageNavigationPlugin();
+  const { jumpToPage } = pageNavigationPluginInstance
+
+  const handleJumpToPage = async () => {
+      jumpToPage(pageNumber - 1);
+  };
+
+  socket.on('pageChange', (newPageNumber) => {
+    console.log('Viewer received page change:', newPageNumber);
+    setPageNumber(newPageNumber);
+    handleJumpToPage(newPageNumber)
+  });
 
   useEffect(() => {
+
+    socket.connect();
+
     const fetchPdf = async () => {
       const response = await fetch('/api/getPdf');
       if (response.ok) {
-        const data = await response.blob();
-        setPdfData(data);
+        const blob = await response.blob();
+        setPdfUrl(URL.createObjectURL(blob));
       }
     };
     fetchPdf();
   }, []);
 
-  // Use a new effect to scroll to the updated page when `pageNumber` changes
-  useEffect(() => {
-    if (viewerRef.current) {
-      viewerRef.current.instance.scrollToPage(pageNumber - 1); // Sync viewer to the presenter's page
-    }
-  }, [pageNumber]);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Viewer - PDF Viewer</h1>
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Viewer PDF Viewer</h1>
       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-4">
-        {pdfData ? (
-          <Worker workerUrl={workerSrc}>
+        {pdfUrl ? (
+          <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}>
             <Viewer
-              ref={viewerRef} // Set the Viewer ref
-              fileUrl={URL.createObjectURL(pdfData)}
-              initialPage={pageNumber - 1} // Set the initial page on first render
+              fileUrl={pdfUrl}
+              plugins={[pageNavigationPluginInstance]}
+            initialPage={pageNumber - 1}
+            onDocumentLoad={() =>{
+              jumpToPage(pageNumber)
+            }}
             />
           </Worker>
         ) : (
