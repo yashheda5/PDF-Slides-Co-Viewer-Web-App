@@ -1,3 +1,4 @@
+'use client'
 // context/PageContext.js
 
 import { createContext, useContext, useState } from 'react';

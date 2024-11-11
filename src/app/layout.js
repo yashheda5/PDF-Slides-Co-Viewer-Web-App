@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { PageProvider } from "./context/PageContext"; // Import the PageProvider
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +24,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {/* Wrap the children with the PageProvider to share page state */}
+        <PageProvider>{children}</PageProvider>
       </body>
     </html>
   );
