@@ -19,7 +19,7 @@ export default function ViewerComponent() {
   const { jumpToPage } = pageNavigationPluginInstance
 
   const handleJumpToPage = async () => {
-      jumpToPage(pageNumber - 1);
+      jumpToPage(pageNumber-1);
   };
 
   socket.on('pageChange', (newPageNumber) => {
