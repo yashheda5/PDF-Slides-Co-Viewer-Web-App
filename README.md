@@ -32,8 +32,9 @@ To set up PDF Slides Co-Viewer locally, follow these steps:
    npm install
    ```
 
-4. **Start the development server:**
+4. **Start the development server for frontend and backend  :**
    ```sh
+   npm run dev
    npm run dev
    ```
 

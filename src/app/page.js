@@ -61,11 +61,11 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-500">
       {/* Font Awesome Icon */}
-      <FontAwesomeIcon icon={faFilePdf} size="6x" className="text-red-600 mb-4" />
+      <FontAwesomeIcon icon={faFilePdf} size="6x" className="text-red-600 mb-4 bg-white p-5 rounded-lg" />
       
-      <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
+      <h1 className="text-3xl font-bold text-center mb-6 text-white">
         Welcome to the PDF Slides Co-Viewer Web App
       </h1>
 
