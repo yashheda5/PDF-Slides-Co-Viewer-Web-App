@@ -39,7 +39,7 @@ export default function ViewerComponent() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r  from-blue-500 to-purple-500 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 p-4">
       <h1 className="text-4xl font-semibold text-white mb-6">Viewer PDF View</h1>
       <div className="w-full max-w-4xl bg-white shadow-2xl rounded-xl p-6 border border-gray-300">
         {pdfUrl ? (

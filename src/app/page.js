@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button"; // Assuming Button component exists
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons'; // Import the PDF icon
+import { faFilePdf, faEye, faUpload } from '@fortawesome/free-solid-svg-icons'; // Import the icons
 
 export default function Home() {
   const [isPresenter, setIsPresenter] = useState(false); // State to check if the user is Presenter
@@ -61,9 +61,9 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-500">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       {/* Font Awesome Icon */}
-      <FontAwesomeIcon icon={faFilePdf} size="6x" className="text-red-600 mb-4 bg-white p-5 rounded-lg" />
+      <FontAwesomeIcon icon={faFilePdf} size="6x" className="text-red-600 mb-4 bg-white p-7 rounded-xl" />
       
       <h1 className="text-3xl font-bold text-center mb-6 text-white">
         Welcome to the PDF Slides Co-Viewer Web App
@@ -75,12 +75,14 @@ export default function Home() {
           onClick={() => handleRoleSelection("Presenter")}
           className="px-6 py-6 text-lg bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700"
         >
+          <FontAwesomeIcon icon={faUpload} className="mr-2" />
           View PDF as Presenter
         </Button>
         <Button
           onClick={() => handleRoleSelection("Viewer")}
           className="px-6 py-6 text-lg bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700"
         >
+          <FontAwesomeIcon icon={faEye} className="mr-2" />
           View PDF as Viewer
         </Button>
       </div>
@@ -99,7 +101,12 @@ export default function Home() {
             disabled={loading} // Disable button while loading
             className="px-6 m-5 py-6 text-lg rounded-lg shadow-md"
           >
-            {loading ? "Uploading..." : "Submit"} {/* Show loading text */}
+            {loading ? "Uploading..." : (
+              <>
+                <FontAwesomeIcon icon={faUpload} className="mr-2" />
+                Submit
+              </>
+            )}
           </Button>
         </div>
       )}
