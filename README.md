@@ -20,39 +20,36 @@ To set up PDF Slides Co-Viewer locally, follow these steps:
    Clone the repository to your local machine:
    ```bash
    git clone https://github.com/yashheda5/pdf-co-viewer.git
- ```
+   ```
 
 2. **Navigate to the project directory:**
-    ```sh
-    cd SecureAuth
-
-    ```
+   ```sh
+   cd SecureAuth
+   ```
 
 3. **Install the required packages:**
-    ```sh
-    npm install
-    ```
+   ```sh
+   npm install
+   ```
 
 4. **Start the development server:**
-    ```sh
-    npm run dev
-    ```
+   ```sh
+   npm run dev
+   ```
 
 5. **Open the project in your browser at [`http://localhost:3000`](http://localhost:3000) to view your project**.
 
 6. **To build the app for production, run:**
-    ```sh
-    npm run build
-    ```
----
+   ```sh
+   npm run build
+   ```
+
 ## 🔧 Key Functionalities
 
 - **PDF Upload & Storage**: The Presenter can upload a PDF file, which is stored securely in MongoDB.
 - **Real-time PDF Sync**: Page changes by the Presenter are broadcast to all connected Viewers in real time using Socket.io.
 - **Smooth PDF Navigation**: The app utilizes the React-PDF Viewer with built-in navigation features for an enhanced user experience.
 - **Role-Based UI**: Different interfaces for Presenter and Viewer roles, with a simple selection process on the landing page.
-
----
 
 ## 🗂️ Code Overview
 
@@ -68,13 +65,9 @@ To set up PDF Slides Co-Viewer locally, follow these steps:
 - **PresenterComponent**: Manages PDF upload and handles real-time navigation events for Presenter.
 - **ViewerComponent**: Listens for page change events and updates the current page for Viewers.
 
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! If you have suggestions, improvements, or find any issues, feel free to open an issue or submit a pull request.
-
----
 
 ## 📜 License
 
