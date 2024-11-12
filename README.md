@@ -5,12 +5,12 @@ Welcome to **PDF Slides Co-Viewer**! This Next.js web application enables real-t
 ## 🌐 Live Demo
 
 Try the live demo of PDF Slides Co-Viewer hosted on Vercel:  
-[PDF Slides Co-Viewer Live Demo](https://vercel.live/link/pdf-co-viewer-demo)
+[PDF Slides Co-Viewer Live Demo](https://pdf-slides-co-viewer-web-app.vercel.app/)
 
 ## 📦 Direct Download
 
 Download the latest version of PDF Slides Co-Viewer as a ZIP file:  
-[Download ZIP](https://github.com/yashheda5/pdf-co-viewer/archive/refs/heads/main.zip)
+[Download ZIP](https://github.com/yashheda5/PDF-Slides-Co-Viewer-Web-App/archive/refs/heads/main.zip)
 
 ## 🚀 Getting Started
 
@@ -19,12 +19,12 @@ To set up PDF Slides Co-Viewer locally, follow these steps:
 1. **Clone the Repository**  
    Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/yashheda5/pdf-co-viewer.git
+   git clone https://github.com/yashheda5/PDF-Slides-Co-Viewer-Web-App.git
    ```
 
 2. **Navigate to the project directory:**
    ```sh
-   cd SecureAuth
+   cd pdf-co-viewer
    ```
 
 3. **Install the required packages:**
