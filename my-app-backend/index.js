@@ -7,13 +7,13 @@ const cors = require("cors");
 
 const io = new Server(server,{
     cors:{
-        origin: 'https://pdf-slides-co-viewer-web-app.vercel.app'
+        origin: ['https://pdf-slides-co-viewer-web-app.vercel.app', 'http://localhost:3000']
     }
 });
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://pdf-slides-co-viewer-web-app.vercel.app'
+    origin: ['https://pdf-slides-co-viewer-web-app.vercel.app', 'http://localhost:3000']
 }))
 
 app.get("/", (req, res) => {

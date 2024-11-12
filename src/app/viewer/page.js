@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
+import { SpecialZoomLevel } from '@react-pdf-viewer/core';
 import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/page-navigation/lib/styles/index.css';
@@ -23,7 +24,7 @@ export default function ViewerComponent() {
 
   socket.on('pageChange', (newPageNumber) => {
     console.log('Viewer received page change:', newPageNumber);
-    setPageNumber(newPageNumber);
+    setPageNumber(newPageNumber+1);
     handleJumpToPage(newPageNumber)
   });
 
@@ -46,16 +47,19 @@ export default function ViewerComponent() {
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Viewer PDF Viewer</h1>
       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-4">
         {pdfUrl ? (
+          <div style={{height: '650px'}}>
           <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}>
             <Viewer
               fileUrl={pdfUrl}
+              defaultScale={SpecialZoomLevel.PageWidth}
               plugins={[pageNavigationPluginInstance]}
             initialPage={pageNumber - 1}
-            onDocumentLoad={() =>{
-              jumpToPage(pageNumber)
-            }}
+            // onDocumentLoad={() =>{
+            //   jumpToPage(pageNumber)
+            // }}
             />
           </Worker>
+          </div>
         ) : (
           <div className="flex flex-col items-center justify-center">
             <div className="loader mb-4"></div>
