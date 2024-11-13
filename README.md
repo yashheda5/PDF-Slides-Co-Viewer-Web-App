@@ -1,110 +1,81 @@
-<div align="center">
-  <img src="/placeholder.svg?height=200&width=200" alt="PDF Slides Co-Viewer Logo" width="200"/>
+# 📑 PDF Slides Co-Viewer
 
-  # 📑 PDF Slides Co-Viewer
+Welcome to **PDF Slides Co-Viewer**! This Next.js web application enables real-time collaborative viewing of PDF files. Users can take on either **Presenter** or **Viewer** roles to facilitate synchronous PDF navigation across devices. The app is built using **MongoDB**, **Socket.io**, **React-PDF Viewer**, and **Next.js**.
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-  [![Vercel](https://vercelbadge.vercel.app/api/yashheda5/PDF-Slides-Co-Viewer-Web-App)](https://pdf-slides-co-viewer-web-app.vercel.app/)
+## 🌐 Live Demo
 
-  Real-time collaborative PDF viewing made easy!
-</div>
+Try the live demo of PDF Slides Co-Viewer hosted on Vercel:  
+[PDF Slides Co-Viewer Live Demo](https://pdf-slides-co-viewer-web-app.vercel.app/)
 
-## 🌟 Features
+## 📦 Direct Download
 
-- 📤 Easy PDF upload and storage
-- 🔄 Real-time synchronization across devices
-- 🎭 Role-based viewing (Presenter/Viewer)
-- 📱 Responsive design for all devices
-- 🚀 Built with Next.js for optimal performance
+Download the latest version of PDF Slides Co-Viewer as a ZIP file:  
+[Download ZIP](https://github.com/yashheda5/PDF-Slides-Co-Viewer-Web-App/archive/refs/heads/main.zip)
 
-## 🖥 Demo
+## 🚀 Getting Started
 
-<div align="center">
-  <img src="/placeholder.svg?height=400&width=600" alt="PDF Slides Co-Viewer Demo" width="600"/>
-</div>
+To set up PDF Slides Co-Viewer locally, follow these steps:
 
-Try the live demo: [PDF Slides Co-Viewer](https://pdf-slides-co-viewer-web-app.vercel.app/)
-
-## 🚀 Quick Start
-
-```bash
-git clone https://github.com/yashheda5/PDF-Slides-Co-Viewer-Web-App.git
-cd PDF-Slides-Co-Viewer-Web-App
-npm install
-npm run dev
-```
-
-Visit `http://localhost:3000` to see the app in action!
-
-## 🛠 Tech Stack
-
-<div align="center">
-  <img src="/placeholder.svg?height=50&width=50" alt="Next.js" width="50"/>
-  <img src="/placeholder.svg?height=50&width=50" alt="React" width="50"/>
-  <img src="/placeholder.svg?height=50&width=50" alt="MongoDB" width="50"/>
-  <img src="/placeholder.svg?height=50&width=50" alt="Socket.io" width="50"/>
-  <img src="/placeholder.svg?height=50&width=50" alt="React-PDF" width="50"/>
-</div>
-
-## 📦 Installation
-
-1. **Clone the Repository**
+1. **Clone the Repository**  
+   Clone the repository to your local machine:
    ```bash
    git clone https://github.com/yashheda5/PDF-Slides-Co-Viewer-Web-App.git
    ```
 
-2. **Navigate to the project directory**
-   ```bash
-   cd PDF-Slides-Co-Viewer-Web-App
+2. **Navigate to the project directory:**
+   ```sh
+   cd pdf-co-viewer
    ```
 
-3. **Install dependencies**
-   ```bash
+3. **Install the required packages:**
+   ```sh
    npm install
    ```
 
-4. **Start the backend server**
-   ```bash
+   4. **Start the development server for  backend  :**
+   ```sh
    cd my-app-backend
    npm run dev
    ```
 
-5. **Start the frontend server**
-   In a new terminal:
-   ```bash
+4. **Start the development server for frontend and backend  :**
+   ```sh
+   npm run dev
    npm run dev
    ```
 
-6. Open `http://localhost:3000` in your browser
+5. **Open the project in your browser at [`http://localhost:3000`](http://localhost:3000) to view your project**.
+
+6. **To build the app for production, run:**
+   ```sh
+   npm run build
+   ```
 
 ## 🔧 Key Functionalities
 
-- **PDF Upload & Storage**: Secure MongoDB storage for uploaded PDFs
-- **Real-time PDF Sync**: Instant page synchronization using Socket.io
-- **Smooth Navigation**: Enhanced UX with React-PDF Viewer
-- **Role-Based UI**: Tailored interfaces for Presenters and Viewers
+- **PDF Upload & Storage**: The Presenter can upload a PDF file, which is stored securely in MongoDB.
+- **Real-time PDF Sync**: Page changes by the Presenter are broadcast to all connected Viewers in real time using Socket.io.
+- **Smooth PDF Navigation**: The app utilizes the React-PDF Viewer with built-in navigation features for an enhanced user experience.
+- **Role-Based UI**: Different interfaces for Presenter and Viewer roles, with a simple selection process on the landing page.
 
-## 🗂️ Code Structure
+## 🗂️ Code Overview
 
-- `/pages/api`: API routes for PDF handling and Socket.io
-- `/components`: React components for Presenter and Viewer roles
-- `/styles`: CSS modules for component styling
+### API Routes
+
+- **GET /api/getPdf**: Retrieves the latest uploaded PDF from MongoDB.
+- **POST /api/upload**: Handles PDF uploads from the Presenter, validating file type and saving it to the database.
+- **/api/socket**: Initializes and manages the Socket.io server for real-time page synchronization.
+
+### Components
+
+- **Home Component**: The landing page where users select their role (Presenter or Viewer).
+- **PresenterComponent**: Manages PDF upload and handles real-time navigation events for Presenter.
+- **ViewerComponent**: Listens for page change events and updates the current page for Viewers.
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for more details.
-
-## 📣 Feedback
-
-If you have any feedback or issues, please open an [issue](https://github.com/yashheda5/PDF-Slides-Co-Viewer-Web-App/issues).
+Contributions are welcome! If you have suggestions, improvements, or find any issues, feel free to open an issue or submit a pull request.
 
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-  Made with ❤️ by [Your Name]
-</div>
