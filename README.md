@@ -3,28 +3,16 @@
 Welcome to **PDF Slides Co-Viewer**! This Next.js web application enables real-time collaborative viewing of PDF files. Users can take on either **Presenter** or **Viewer** roles to facilitate synchronous PDF navigation across devices. The app is built using **MongoDB**, **Socket.io**, **React-PDF Viewer**, and **Next.js**.
 
 
-## 🛠 Tech Stack
+## Tech Stack
 
-| Technology | Uses |
-|------------|------|
-| ![JavaScript](https://skillicons.dev/icons?i=js) | Core programming language for both frontend and backend development |
-| ![React](https://skillicons.dev/icons?i=react) | Building the user interface and managing component state |
-| ![Next.js](https://skillicons.dev/icons?i=nextjs) | React framework for server-side rendering, routing, and API routes |
-| ![Node.js](https://skillicons.dev/icons?i=nodejs) | Runtime environment for server-side JavaScript execution |
-| ![MongoDB](https://skillicons.dev/icons?i=mongodb) | NoSQL database for storing PDF files and metadata |
-| ![Tailwind CSS](https://skillicons.dev/icons?i=tailwind) | Utility-first CSS framework for rapid UI development |
-| ![Socket.io](https://skillicons.dev/icons?i=socketio) | Real-time, bidirectional communication between web clients and servers |
-| ![Git](https://skillicons.dev/icons?i=git) | Version control system for tracking changes in source code |
-| ![Vercel](https://skillicons.dev/icons?i=vercel) | Platform for deploying and hosting the application |
-
-### Additional Libraries and Tools
-
-- **Mongoose**: ODM library for MongoDB and Node.js
-- **React-PDF**: PDF viewer component for React applications
-- **FontAwesome**: Icon library for enhancing UI with scalable vector icons
-- **@next/font**: Next.js font optimization feature for improved performance
-
-This full-stack JavaScript application leverages modern web technologies to create a seamless, real-time PDF viewing experience. The combination of Next.js for the frontend and API routes, MongoDB for data storage, and Socket.io for real-time updates allows for a robust and scalable architecture.
+![Next.js](https://skillicons.dev/icons?i=nextjs)
+![JavaScript](https://skillicons.dev/icons?i=javascript)
+![React](https://skillicons.dev/icons?i=react)
+![Node.js](https://skillicons.dev/icons?i=nodejs)
+![MongoDB](https://skillicons.dev/icons?i=mongodb)
+![Tailwind CSS](https://skillicons.dev/icons?i=tailwind)
+![Git](https://skillicons.dev/icons?i=git)
+![Vercel](https://skillicons.dev/icons?i=vercel)
 
 
 ## 🌐 Live Demo
