@@ -16,32 +16,50 @@ Download the latest version of PDF Slides Co-Viewer as a ZIP file:
 
 To set up PDF Slides Co-Viewer locally, follow these steps:
 
-1. **Clone the Repository**  
+1. **Clone the Repository**
+
    Clone the repository to your local machine:
+
    ```bash
    git clone https://github.com/yashheda5/PDF-Slides-Co-Viewer-Web-App.git
    ```
 
-2. **Navigate to the project directory:**
-   ```sh
-   cd pdf-co-viewer
+2. **Navigate to the project directory**
+
+   ```bash
+   cd PDF-Slides-Co-Viewer-Web-App
    ```
 
-3. **Install the required packages:**
-   ```sh
+3. **Install the required packages**
+
+   ```bash
    npm install
    ```
 
-4. **Start the development server for frontend and backend  :**
-   ```sh
-   npm run dev
+4. **Start the development server for backend**
+
+   ```bash
+   cd my-app-backend
    npm run dev
    ```
 
-5. **Open the project in your browser at [`http://localhost:3000`](http://localhost:3000) to view your project**.
+5. **Start the development server for frontend**
 
-6. **To build the app for production, run:**
-   ```sh
+   In a new terminal window, navigate back to the root directory and run:
+
+   ```bash
+   npm run dev
+   ```
+
+6. **View the project**
+
+   Open your browser and go to [http://localhost:3000](http://localhost:3000) to view your project.
+
+7. **Build for production**
+
+   To build the app for production, run:
+
+   ```bash
    npm run build
    ```
 
