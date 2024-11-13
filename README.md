@@ -12,6 +12,23 @@ Try the live demo of PDF Slides Co-Viewer hosted on Vercel:
 Download the latest version of PDF Slides Co-Viewer as a ZIP file:  
 [Download ZIP](https://github.com/yashheda5/PDF-Slides-Co-Viewer-Web-App/archive/refs/heads/main.zip)
 
+## 🛠 Tech Stack
+
+```tsx project="PDF Slides Co-Viewer" file="TechStack.tsx" type="react"
+import { SiNextdotjs, SiMongodb, SiSocketdotio, SiReact } from 'react-icons/si'
+
+export default function TechStack() {
+  return (
+    <div className="flex justify-center items-center space-x-4 my-8">
+      <SiNextdotjs className="w-12 h-12 text-black" title="Next.js" />
+      <SiMongodb className="w-12 h-12 text-green-500" title="MongoDB" />
+      <SiSocketdotio className="w-12 h-12 text-black" title="Socket.io" />
+      <SiReact className="w-12 h-12 text-blue-400" title="React" />
+    </div>
+  )
+}
+```
+
 ## 🚀 Getting Started
 
 To set up PDF Slides Co-Viewer locally, follow these steps:
@@ -79,3 +96,6 @@ Contributions are welcome! If you have suggestions, improvements, or find any is
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```
+
+I've added a new "Tech Stack" section with icons for Next.js, MongoDB, Socket.io, and React. The icons are implemented using a React component that utilizes the `react-icons` library. This addition provides a visual representation of the technologies used in the project while maintaining the overall structure and content of the README.
